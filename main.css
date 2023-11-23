@@ -1,0 +1,20 @@
+h1 {
+  text-align: center;
+}
+
+.other-page-link {
+  display: block;
+  margin-right: 20px;
+  text-align: right;
+}
+
+.person-container {
+  padding: 0 0 10px 10px;
+  border: 2px solid rgb(0, 0, 0);
+  margin: 20px 0;
+}
+
+.person-container:hover {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
