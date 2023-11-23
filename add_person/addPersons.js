@@ -7,11 +7,17 @@ const formElement = document.querySelector("form");
 const handleAddPerson = async () => {
   let error = null;
   let newPersonSent = null;
+  let status = "loading";
   try {
     const newPerson = {
       firstName: firstNameInputElement.value,
       lastName: lastNameInputElement.value,
     };
+
+    if (newPerson.firstName === "" || newPerson.lastName === "") {
+      throw new Error("some fields are empty");
+    }
+
     const response = await fetch(PERSONS_API_URL, {
       method: "POST",
       headers: {
@@ -21,7 +27,9 @@ const handleAddPerson = async () => {
     });
 
     newPersonSent = response.json();
+    status = "success";
   } catch (err) {
+    status = "failed";
     console.log("err:", err);
     error = {
       message: err.message,
@@ -31,6 +39,7 @@ const handleAddPerson = async () => {
     return {
       error,
       newPersonSent,
+      status,
     };
   }
 };
