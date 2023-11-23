@@ -1,4 +1,4 @@
-const PERSONS_API_URL = "http://localhost:3000/persons";
+import { PERSONS_API_URL } from "./utils/data/API.js";
 
 const personsSection = document.getElementById("persons-section");
 
